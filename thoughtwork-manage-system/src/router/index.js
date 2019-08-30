@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Home from '@/components/Home'
 import DashBoard from '@/components/DashBoard'
 import Agent from '@/components/Agent'
 import MyCruise from '@/components/MyCruise'
@@ -11,9 +12,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/DashBoard'
-    },
-    {
+      name: 'Home',
+      component: Home
+    }, {
       path: '/DashBoard',
       name: 'DashBoard',
       component: DashBoard
