@@ -21,13 +21,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .header {
-    width: 99%;
+    width: 100%;
     height: 60px;
-    position: absolute;
+    position: fixed;
     box-shadow: 0 5px 5px #e1e4e6;
     border: 1px solid #e1e4e6;
+    overflow: hidden;
   }
   .header-container {
     max-width: 1200px;

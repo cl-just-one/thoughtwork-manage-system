@@ -10,17 +10,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
   .footer {
-    width: 99%;
-    position: absolute;
+    width: 100%;
+    position: fixed;
     bottom: 0;
-    height: 20px;
+    height: 24px;
     text-align: center;
     box-shadow: 0 -5px 5px #e1e4e6;
     border: 1px solid #e1e4e6;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #fff;
   }
   .footer .content {
-    padding: 5px 0;
+    padding: 3px 0;
   }
 </style>
