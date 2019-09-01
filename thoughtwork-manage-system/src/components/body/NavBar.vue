@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <ul class="nav-item">
-      <li v-for="item in NavList" :key="item.id">
+      <li v-for="item in NavList" :key="item.id" @click="handleItemClick(item.id)">
         <span class="icon img" :class="item.img"></span>{{item.name}}
       </li>
     </ul>
@@ -23,19 +23,19 @@ export default {
     return {
       NavList: [{
         id: '0001',
-        img: 'icon-desktop',
+        img: 'icon-dashboard',
         name: 'DASHBOARD'
       }, {
         id: '0002',
-        img: 'icon-boat',
+        img: 'icon-sitemap',
         name: 'AGENT'
       }, {
         id: '0003',
-        img: 'icon-deny',
+        img: 'icon-boat',
         name: 'MY CRUISE'
       }, {
         id: '0004',
-        img: 'icon-trash',
+        img: 'icon-info',
         name: 'HELP'
       }],
       historyList: [{
@@ -46,6 +46,27 @@ export default {
         value: 'qwertyuioopplkjhgfdsa/qwertyuu_test'
       }]
     }
+  },
+  methods: {
+    handleItemClick: function (id) {
+      if (id === '0001') {
+        this.$router.push({
+          path: '/DashBoard'
+        })
+      } else if (id === '0002') {
+        this.$router.push({
+          path: '/Agent'
+        })
+      } else if (id === '0003') {
+        this.$router.push({
+          path: '/MyCruise'
+        })
+      } else {
+        this.$router.push({
+          path: '/Help'
+        })
+      }
+    }
   }
 }
 </script>
@@ -55,8 +76,9 @@ export default {
   width: 300px;
   height: 100%;
   color: #fff;
-  background-color: #000;
+  background-color: #2d4054;
   position: relative;
+  display: inline-block;
 }
 .nav-item li {
   height: 45px;
@@ -64,8 +86,9 @@ export default {
   padding-left: 40px;
 }
 .nav-item li:hover {
+  cursor: pointer;
   color: aqua;
-  background-color: #eee;
+  background-color: #435466;
 }
 .img {
   font-size: 20px;
@@ -86,7 +109,8 @@ export default {
   font-size: 12px;
   color: #999;
 }
-item li:hover {
+.item li:hover {
+  cursor: pointer;
   color: #00b4cf;
 }
 .txt {
