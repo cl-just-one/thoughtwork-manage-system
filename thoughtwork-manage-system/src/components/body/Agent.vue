@@ -5,6 +5,7 @@
       <status-nav/>
       <status-list/>
     </div>
+    <modal/>
   </div>
 </template>
 
@@ -12,13 +13,15 @@
 import StatusTotal from '@/components/body/components/StatusTotal.vue'
 import StatusNav from '@/components/body/components/StatusNav.vue'
 import StatusList from '@/components/body/components/StatusList.vue'
+import Modal from '@/components/body/components/Modal.vue'
 
 export default {
   name: 'Agent',
   components: {
     StatusTotal,
     StatusNav,
-    StatusList
+    StatusList,
+    Modal
   },
   data () {
     return {

@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="status" v-for="item in StatusList" :key="item.id">
+  <div class="status" v-for="(item, index) in StatusList" :key="item.id">
     <div class="status-img">
       <img :src="item.imgUrl" alt="logo">
     </div>
@@ -24,18 +24,14 @@
         </div>
       </div>
       <div class="content-operate">
-        <div class="plus">
+        <div class="plus" @click="addBroswerClick(index)">
           <span class="icon icon-plus"></span>
         </div>
         <div class="broswer">
-          <span class="broswer-icon" v-for="obj in item.broswerList" :key="obj.id">
+          <span class="broswer-icon" v-for="(obj, index1) in item.broswerList" :key="obj.id">
             {{obj.name}}
-            <span @click="delBrowserClick(item.id,obj.id)" :id="obj.id" class="icon icon-trash"></span>
+            <span @click="delBrowserClick(index, index1)" :id="obj.id" class="icon icon-trash"></span>
           </span>
-          <!-- <span class="broswer-icon">Opera <span class="icon icon-trash"></span></span>
-          <span class="broswer-icon">Opera <span class="icon icon-trash"></span></span>
-          <span class="broswer-icon">Opera <span class="icon icon-trash"></span></span>
-          <span class="broswer-icon">Opera <span class="icon icon-trash"></span></span> -->
         </div>
         <div class="deny">
           <span class="deny-icon"><span class="icon icon-deny"></span>Deny</span>
@@ -129,6 +125,10 @@ export default {
   },
   methods: {
     delBrowserClick (row, col) {
+      this.StatusList[row].broswerList.splice(col, 1)
+    },
+    addBroswerClick () {
+      // todo
     }
   }
 }
@@ -154,6 +154,9 @@ export default {
   position: absolute;
   left: 8px;
   top: 8px;
+}
+.plus:hover {
+  cursor: pointer;
 }
 .status-content {
   width: 85%;
